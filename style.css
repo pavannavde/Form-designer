@@ -18,6 +18,10 @@
 .navbar>h1,.navbar>button{
     margin: 20px;
 }
+.navbar>h1{
+    color: rgb(128, 3, 30);
+    font-family: cursive;
+}
 
 .navbar>button{
     padding: 5px;
@@ -129,6 +133,10 @@
     padding: 5px;
 }
 
+::-webkit-scrollbar{
+    display: none;
+}
+/* media queries for responsiveness of web app across different screen sizes */
 @media only screen and (max-width:750px) {
     .component-section{
         width:30%;
@@ -149,7 +157,7 @@
 @media only screen and (max-width:500px){
     .form-element-container{
         width:250px;
-        padding: 0px;
+        padding: 10px 0px;
     }
     .component-section>h2{
         font-size: 16px;
