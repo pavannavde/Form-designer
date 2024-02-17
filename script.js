@@ -4,10 +4,11 @@ const addTextarea = document.getElementById('add-textarea');
 const saveBtn = document.getElementById('save');
 
 //event listener for buttons
-addInput.addEventListener('click',()=>addElement('input'))
-addSelect.addEventListener('click',()=>addElement('select'))
-addTextarea.addEventListener('click',()=> addElement('textarea'))
-saveBtn.addEventListener('click',()=>save())
+addInput.addEventListener('click',()=>addElement('input'));
+addSelect.addEventListener('click',()=>addElement('select'));
+addTextarea.addEventListener('click',()=> addElement('textarea'));
+saveBtn.addEventListener('click',()=>save());
+
 
 //sample data
  let data=[
@@ -38,46 +39,45 @@ saveBtn.addEventListener('click',()=>save())
 ]
 
 //add element
-function addElement(type){
-    const id = Math.random().toString(16).slice(2);
-    console.log(id)
-    if(type==='input')
-    {
-        data.push( {
-            "id": id,
-            "type": "input",
-            "label": "Sample Label",
-            "placeholder": "Sample placeholder"
-        })
-    }
-    else if(type==='select')
-    {
-        data.push( {
-            "id": id,
-            "type": "select",
-            "label": "Sample Label",
-            "options": ["Sample Option", "Sample Option", "Sample Option"]
-        })
-    }
-    else if(type==='textarea')
-    {
-        data.push( {
-            "id": id,
-            "type": "textarea",
-            "label": "Sample Label",
-            "placeholder": "Sample Placeholder"
-        })
-    }
-    CreateFormElement()
+function addElement (type){
+  const id = Math.random().toString(16).slice(2);
+  const options=['Sample Option','Sample Option','Sample Option']
+  const li = document.createElement('li');
+   const div = document.createElement('div');
+   const label = document.createElement('label');
+   const button = document.createElement('button');
+   const input = document.createElement(type);
+   li.classList.add('form-item');
+   input.classList.add('form-element');
+   button.innerHTML = '<img src="./assets/delete-button-svgrepo-com.svg" alt="delete"/>';
+   label.innerText = `Sample Label`;
+   input.id = `${id}`;
+   button.addEventListener('click', ()=>removeElement(id));
+   li.setAttribute('draggable','true');
+   if(type!=='select')
+   {
+      input.placeholder = `Sample Placeholder`;
+   }
+   if(type==='select')
+   {
+       options.forEach(option => {
+         input.innerHTML += `<option value="${option}">${option}</option>`;
+      })
+   }
+   div.appendChild(label);
+   div.appendChild(button);
+   li.appendChild(div);
+   li.appendChild(input);
+   document.getElementById('form-container').appendChild(li);
 }
 
 //remove element
 function removeElement(id){
-  data = data.filter((ele)=>id!==ele.id)
-  CreateFormElement(); 
+  const item = document.getElementById(id);
+  item.parentElement.remove();
 }
 
-//create form elements
+//create form elements----initial forms element 
 function CreateFormElement() {
     document.getElementById('form-container').innerHTML=''
     data.forEach(element => {
@@ -111,10 +111,10 @@ function CreateFormElement() {
 })
 }
 
+//inital form creation
 CreateFormElement()
 
 //Reordering element using drag and drop 
-
 const list = document.getElementById('form-container');
 
 let draggedItem = null;
@@ -186,3 +186,4 @@ function save(){
     })
     console.log(data)
 }
+

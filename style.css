@@ -28,6 +28,8 @@
     border: none;
     background-color: rgb(76, 111, 117);
     color:#fff;
+    cursor: pointer;
+    transition: all 1s ease;
 }
 .navbar>button:hover{
     color:rgb(76, 111, 117);
