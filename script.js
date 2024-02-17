@@ -90,8 +90,9 @@ function CreateFormElement() {
    input.classList.add('form-element');
    button.innerHTML = '<img src="./assets/delete-button-svgrepo-com.svg" alt="delete"/>';
    label.innerText = `${element.label}`;
-   button.addEventListener('click', ()=>removeElement(`${element.id}`))
-   li.setAttribute('draggable','true')
+   input.id = `${element.id}`;
+   button.addEventListener('click', ()=>removeElement(`${element.id}`));
+   li.setAttribute('draggable','true');
    if(element.type!=='select')
    {
       input.placeholder = `${element.placeholder}`;
