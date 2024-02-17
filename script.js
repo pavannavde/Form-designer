@@ -119,10 +119,12 @@ const list = document.getElementById('form-container');
 
 let draggedItem = null;
 
+//ondragging the element ,get  store in draggItem
 list.addEventListener('dragstart', (e) => {
   draggedItem = e.target;
 });
 
+// on dragover the element calculate where to drop and drop the element 
 list.addEventListener('dragover', (e) => {
   e.preventDefault();
   const afterElement = getDragAfterElement(list, e.clientY);
@@ -135,9 +137,9 @@ list.addEventListener('dragover', (e) => {
   }
 });
 
+// function to calculate where to drop
 function getDragAfterElement(container, y) {
   const draggableElements = [...container.querySelectorAll('.form-item:not(.dragging)')];
-
   return draggableElements.reduce((closest, child) => {
     const box = child.getBoundingClientRect();
     const offset = y - box.top - box.height / 2;
@@ -150,7 +152,7 @@ function getDragAfterElement(container, y) {
 }
 
 
-//get data json data from form items like tag name, placehoder,label, options
+//get  json data from form items like tag name, placehoder,label, options
 function save(){
     let data = [];
     const formItems = document.querySelectorAll('.form-item');
