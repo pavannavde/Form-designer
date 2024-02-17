@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+/* css for navbar */
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width:100vw;
+    height: 10vh;
+    background-color: rgb(225, 235, 232);
+    border-bottom:1px solid grey ;
+}
+.navbar>h1,.navbar>button{
+    margin: 20px;
+}
+
+.navbar>button{
+    padding: 5px;
+    width:90px;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(76, 111, 117);
+    color:#fff;
+}
+.navbar>button:hover{
+    color:rgb(76, 111, 117);
+    background-color: #fff;
+}
+/* css for main section */
+
+.main-section{
+    display: flex;
+    width:100vw;
+    min-height: 100vh;
+    justify-content:space-between;
+}
+
+/* css for component section */
+.component-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: rgb(225, 235, 232);
+    width:25%;
+    /* height: 100%; */
+    gap:20px;
+}
+.element{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width:70%;
+    background-color: aliceblue;
+    padding: 5px;
+    border: 0.5px solid grey;
+    border-radius: 5px;
+    font-size: 18px;
+}
+.component-section>h2{
+ border-bottom: 1px solid rgb(151, 146, 146);
+ width:100%;
+ text-align: center;
+ color: rgb(80, 76, 76);
+ padding: 10px 0px;
+}
+.element>button{
+    /* padding: 5px; */
+    border: none;
+    font-size: 24px;
+    background-color: transparent;
+    cursor: pointer;
+}
+/* form designer section css */
+.form-designer{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width:80%;
+    /* height:100%; */
+    background-color: rgb(76, 111, 117);
+}
+.form-element-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap:10px;
+    align-items: center;
+    width:50%;
+    background-color: #fff;
+    list-style: none;
+    padding: 30px 0px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+}
+.form-item{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    font-size: 18px;
+    width:60%;
+    margin: 5px;
+}
+.form-item>div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.form-item>div>button{
+    /* width:50px; */
+    background-color: transparent;
+    border: none;
+}
+.form-item>div>button>img{
+    width:20px;
+    height: 20px;
+}
+.form-element{
+    padding: 5px;
+}
+
+@media only screen and (max-width:750px) {
+    .component-section{
+        width:30%;
+        font-size: 16px;
+    }
+    .component-section>h2{
+        font-size: 18px;
+    }
+    .form-designer{
+        width:70%;
+    }
+    .form-element-container{
+        width:300px;
+    }
+    
+}
+
+@media only screen and (max-width:500px){
+    .form-element-container{
+        width:250px;
+        padding: 0px;
+    }
+    .component-section>h2{
+        font-size: 16px;
+    }
+    .element{
+        width: 80%;
+    }
+}
